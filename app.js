@@ -10,19 +10,75 @@ app.use(express.urlencoded({
 
 
 app.post('/pipe-pedidos', async (req, res) => {
+
+  phaseId = req.body.data.to.id
+
+  if(phaseId == "310523364"){
     
-    phaseId = req.body.data.to.id
-    console.log(phaseId)
+    console.log(req.body.data)
 
     const options = {
     method: "POST",
     headers:{"Content-Type": "application/json"},
     mode: "cors",
     data: req.body.data,
-    url: "https://eo3f12tkyr4r4wa.m.pipedream.net"
+    url: "https://eo4r0f2xwt5bfc4.m.pipedream.net"
     }
 
     await axios(options)
+
+    res.status(200).end()
+  }
+
+});
+
+app.post('/pipe-associados', async (req, res) => {
+  
+  console.log(req.body.data)
+
+  phaseId = req.body.data.to.id
+
+  if(phaseId == "316891688"){
+    
+    console.log(req.body.data)
+
+    const options = {
+    method: "POST",
+    headers:{"Content-Type": "application/json"},
+    mode: "cors",
+    data: req.body.data,
+    url: "https://eot9ant5nl3yh5q.m.pipedream.net"
+    }
+
+    await axios(options)
+
+    res.status(200).end()
+  }
+
+});
+
+app.post('/pipe-servicos', async (req, res) => {
+  
+  console.log(req.body.data)
+
+  phaseId = req.body.data.to.id
+
+  if(phaseId == "311283175"){
+    
+    console.log(req.body.data)
+
+    const options = {
+    method: "POST",
+    headers:{"Content-Type": "application/json"},
+    mode: "cors",
+    data: req.body.data,
+    url: "https://eokfrenqj4pqhcr.m.pipedream.net"
+    }
+
+    await axios(options)
+
+    res.status(200).end()
+  }
 
 });
 
