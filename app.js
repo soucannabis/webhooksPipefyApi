@@ -13,7 +13,7 @@ app.post('/pipe-pedidos', async (req, res) => {
 
   phaseId = req.body.data.to.id
 
-  if(phaseId == "310523364"){
+  if(phaseId == "311283175"){
     
     console.log(req.body.data)
 
