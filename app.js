@@ -2,6 +2,10 @@ const express = require('express');
 const axios = require('axios')
 const app = express();
 var phaseId = []
+var info = []
+var date = ""
+
+date = new Date()
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -11,12 +15,15 @@ app.use(express.urlencoded({
 
 app.post('/pipe-pedidos', async (req, res) => {
 
+  info = req.body.data
+
+  console.log(info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+
+
   phaseId = req.body.data.to.id
 
-  if(phaseId == "310523364"){
-    
-    console.log(req.body.data)
-
+  if(phaseId == "310523364"){ 
+   
     const options = {
     method: "POST",
     headers:{"Content-Type": "application/json"},
@@ -30,17 +37,33 @@ app.post('/pipe-pedidos', async (req, res) => {
     res.status(200).end()
   }
 
+  if(phaseId == "311232364"){ 
+   
+    const options = {
+    method: "POST",
+    headers:{"Content-Type": "application/json"},
+    mode: "cors",
+    data: req.body.data,
+    url: "https://eownrtbxf42g5iq.m.pipedream.net"
+    }
+
+    await axios(options)
+
+    res.status(200).end()
+  }
+
 });
 
 app.post('/pipe-associados', async (req, res) => {
   
-  console.log(req.body.data)
+  info = req.body.data
+
+  console.log(info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+
 
   phaseId = req.body.data.to.id
 
   if(phaseId == "316891688"){
-    
-    console.log(req.body.data)
 
     const options = {
     method: "POST",
@@ -58,14 +81,14 @@ app.post('/pipe-associados', async (req, res) => {
 });
 
 app.post('/pipe-servicos', async (req, res) => {
-  
-  console.log(req.body.data)
+
+  info = req.body.data
+
+   console.log(info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
 
   phaseId = req.body.data.to.id
 
   if(phaseId == "311283175"){
-    
-    console.log(req.body.data)
 
     const options = {
     method: "POST",
