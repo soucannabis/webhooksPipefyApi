@@ -37,7 +37,7 @@ app.post('/pipe-pedidos', async (req, res) => {
     res.status(200).end()
   }
 
-  if(phaseId == "315282523"){ 
+  if(phaseId == "311232364"){ 
    
     const options = {
     method: "POST",
