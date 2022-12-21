@@ -17,7 +17,7 @@ app.post('/pipe-pedidos', async (req, res) => {
 
   info = req.body.data
 
-  console.log(info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+  console.log("[Pipe Pedidos]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
 
 
   phaseId = req.body.data.to.id
@@ -37,7 +37,7 @@ app.post('/pipe-pedidos', async (req, res) => {
     res.status(200).end()
   }
 
-  if(phaseId == "311232364"){ 
+  if(phaseId == "315282523"){ 
    
     const options = {
     method: "POST",
@@ -58,7 +58,7 @@ app.post('/pipe-associados', async (req, res) => {
   
   info = req.body.data
 
-  console.log(info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+  console.log("[Pipe Associados]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
 
 
   phaseId = req.body.data.to.id
@@ -84,7 +84,7 @@ app.post('/pipe-servicos', async (req, res) => {
 
   info = req.body.data
 
-   console.log(info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+   console.log("[Pipe Serviços]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
 
   phaseId = req.body.data.to.id
 
