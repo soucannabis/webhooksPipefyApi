@@ -3,9 +3,10 @@ const axios = require('axios')
 const app = express();
 var phaseId = []
 var info = []
+var api = []
 var date = ""
 
-date = new Date()
+
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -15,7 +16,10 @@ app.use(express.urlencoded({
 
 app.post('/pipe-pedidos', async (req, res) => {
 
+  date = new Date()
+
   info = req.body.data
+  api.push(info)
 
   console.log("[Pipe Pedidos]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
 
@@ -52,17 +56,20 @@ app.post('/pipe-pedidos', async (req, res) => {
     res.status(200).end()
   }
 
-  return info
+  return api
 
 });
 
-app.get('/pipe-associados', async (req, res) => {
-    res.send(info)
+app.get('/api', async (req, res) => {
+    res.send(api)
 })
 
 app.post('/pipe-associados', async (req, res) => {
+  date = new Date()
+  
   
   info = req.body.data
+  api.push(info)
 
   console.log("[Pipe Associados]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
 
@@ -84,11 +91,15 @@ app.post('/pipe-associados', async (req, res) => {
     res.status(200).end()
   }
 
+  return api
+
 });
 
 app.post('/pipe-servicos', async (req, res) => {
+  date = new Date()
 
   info = req.body.data
+  api.push(info)
 
    console.log("[Pipe Serviços]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
 
@@ -109,11 +120,15 @@ app.post('/pipe-servicos', async (req, res) => {
     res.status(200).end()
   }
 
+  return api
+
 });
 
 app.post('/pipe-liga', async (req, res) => {
+  date = new Date()
 
   info = req.body.data
+  api.push(info)
 
    console.log(info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
 
@@ -161,6 +176,8 @@ app.post('/pipe-liga', async (req, res) => {
 
     res.status(200).end()
   }
+
+  return api
 
 });
 
