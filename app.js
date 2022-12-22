@@ -52,7 +52,13 @@ app.post('/pipe-pedidos', async (req, res) => {
     res.status(200).end()
   }
 
+  return info
+
 });
+
+app.get('/pipe-associados', async (req, res) => {
+    res.send(info)
+})
 
 app.post('/pipe-associados', async (req, res) => {
   
