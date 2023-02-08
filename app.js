@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('axios')
 const app = express();
-const {utcToZonedTime, format } = require('date-fns-tz')
+//const {utcToZonedTime, format } = require('date-fns-tz')
 const timeZone = 'America/Sao_Paulo'
 var zonedDate = ""
 const pattern = 'd.M.yyyy HH:mm:ss'
@@ -28,11 +28,11 @@ app.get('/api', async (req, res) => {
 
 app.post('/pipe-associados', async (req, res) => {
 date = new Date()  
-zonedDate =  utcToZonedTime(date, timeZone)
-datetime = format(zonedDate, pattern)
+//zonedDate =  utcToZonedTime(date, timeZone)
+//datetime = format(zonedDate, pattern)
 info = req.body.data
 
-console.log("[Pipe Associados] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+datetime)
+console.log("[Pipe Associados] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - ")
 
 infos = {
   "pipe":"sou-associados",
