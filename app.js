@@ -181,6 +181,47 @@ app.post('/pipe-liga', async (req, res) => {
 
 });
 
+app.post('/pipe-comunicacao', async (req, res) => {
+  date = new Date()  
+  zonedDate =  utcToZonedTime(date, timeZone)
+  datetime = format(zonedDate, pattern)
+  info = req.body.data
+  
+  console.log("[Pipe Comunicação] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+datetime)
+  
+  infos = {
+    "pipe":"sou-comunicacao",
+    "action":info.action,
+    "cardTitle":info.card.title,
+    "lastPhase":info.from.name,
+    "phase":info.to.name,
+    "moved":info.moved_by.name,
+    "datetime":datetime
+  }
+  
+  api.push(infos)
+  
+  phaseId = req.body.data.to.id
+  
+  if(phaseId == "318409148"){
+  
+    const options = {
+    method: "POST",
+    headers:{"Content-Type": "application/json"},
+    mode: "cors",
+    data: req.body.data,
+    url: "https://eo9hfgd2rdx1cre.m.pipedream.net"
+    }
+  
+    await axios(options)   
+  }
+  
+  res.status(200).end()
+  
+  return api
+  
+  });
+
 app.listen(process.env.PORT || 3000, () => {
     console.log('listening on *:3000');
   });
