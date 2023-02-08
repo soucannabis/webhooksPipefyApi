@@ -210,7 +210,7 @@ app.post('/pipe-comunicacao', async (req, res) => {
     headers:{"Content-Type": "application/json"},
     mode: "cors",
     data: req.body.data,
-    url: "https://eo9hfgd2rdx1cre.m.pipedream.net"
+    url: "https://eo77qwdnypcffz8.m.pipedream.net"
     }
   
     await axios(options)   
