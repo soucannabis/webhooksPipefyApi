@@ -183,11 +183,9 @@ app.post('/pipe-liga', async (req, res) => {
 
 app.post('/pipe-comunicacao', async (req, res) => {
   date = new Date()  
-  zonedDate =  utcToZonedTime(date, timeZone)
-  datetime = format(zonedDate, pattern)
   info = req.body.data
   
-  console.log("[Pipe Comunicação] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+datetime)
+  console.log("[Pipe Comunicação] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
   
   infos = {
     "pipe":"sou-comunicacao",
