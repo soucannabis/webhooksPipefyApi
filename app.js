@@ -236,9 +236,7 @@ app.post('/ass-associado', async (req, res) => {
   
  // api.push(infos)
      
-  phaseId = "xxx"
   
-  if(phaseId == "xxx"){
   
     const options = {
     method: "POST",
@@ -249,7 +247,7 @@ app.post('/ass-associado', async (req, res) => {
     }
   
     await axios(options)   
-  }
+  
   
   res.status(200).end()
   
