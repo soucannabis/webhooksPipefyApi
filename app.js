@@ -30,7 +30,7 @@ app.post('/pipe-pedidos', async (req, res) => {
     mode: "cors",
     data: req.body.data,
     url: "https://eo4r0f2xwt5bfc4.m.pipedream.net"
-    
+    }
 
     await axios(options)
 
