@@ -23,6 +23,10 @@ app.post('/pipe-pedidos', async (req, res) => {
 
   console.log("[Pipe Pedidos]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
 
+
+  phaseId = req.body.data.to.id
+
+  if(phaseId == "310523364"){ 
    
     const options = {
     method: "POST",
@@ -224,7 +228,7 @@ app.post('/ass-associado', async (req, res) => {
   
   //console.log("[Ass Associado] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
   
-  /*infos = {
+ /* infos = {
     "pipe":"ass-associado",
     "action":info.action,
     "cardTitle":info.card.title,
@@ -232,11 +236,10 @@ app.post('/ass-associado', async (req, res) => {
     "phase":info.to.name,
     "moved":info.moved_by.name,
     "datetime":date
-  }*/
+  }
   
- // api.push(infos)
+  api.push(infos)*/
      
-  
   
     const options = {
     method: "POST",
@@ -251,7 +254,7 @@ app.post('/ass-associado', async (req, res) => {
   
   res.status(200).end()
   
-  //return api
+  return api
   
   });
 
