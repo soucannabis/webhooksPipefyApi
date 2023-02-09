@@ -23,10 +23,6 @@ app.post('/pipe-pedidos', async (req, res) => {
 
   console.log("[Pipe Pedidos]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
 
-
-  phaseId = req.body.data.to.id
-
-  if(phaseId == "310523364"){ 
    
     const options = {
     method: "POST",
@@ -34,7 +30,7 @@ app.post('/pipe-pedidos', async (req, res) => {
     mode: "cors",
     data: req.body.data,
     url: "https://eo4r0f2xwt5bfc4.m.pipedream.net"
-    }
+    
 
     await axios(options)
 
