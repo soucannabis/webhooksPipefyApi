@@ -220,6 +220,47 @@ app.post('/pipe-comunicacao', async (req, res) => {
   
   });
 
+app.post('/ass-associado', async (req, res) => {
+  date = new Date()  
+  info = req.body.data
+  
+  console.log("[Ass Associado] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+  
+  infos = {
+    "pipe":"ass-associado",
+    "action":info.action,
+    "cardTitle":info.card.title,
+    "lastPhase":info.from.name,
+    "phase":info.to.name,
+    "moved":info.moved_by.name,
+    "datetime":date
+  }
+  
+  api.push(infos)
+  
+  console.log(req.body.data)
+  
+  phaseId = req.body.data.to.id
+  
+  if(phaseId == "xxx"){
+  
+    const options = {
+    method: "POST",
+    headers:{"Content-Type": "application/json"},
+    mode: "cors",
+    data: req.body.data,
+    url: "https://eo77qwdnypcffz8.m.pipedream.net"
+    }
+  
+    await axios(options)   
+  }
+  
+  res.status(200).end()
+  
+  return api
+  
+  });
+
 app.listen(process.env.PORT || 3000, () => {
     console.log('listening on *:3000');
   });
