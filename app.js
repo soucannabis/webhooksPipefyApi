@@ -228,7 +228,7 @@ app.post('/ass-associado', async (req, res) => {
   
   //console.log("[Ass Associado] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
   
-  infos = {
+  /*infos = {
     "pipe":"ass-associado",
     "action":info.action,
     "cardTitle":info.card.title,
@@ -236,9 +236,9 @@ app.post('/ass-associado', async (req, res) => {
     "phase":info.to.name,
     "moved":info.moved_by.name,
     "datetime":date
-  }
+  }*/
   
-  api.push(infos)
+ // api.push(infos)
      
   phaseId = req.body.data.to.id
   
@@ -248,7 +248,7 @@ app.post('/ass-associado', async (req, res) => {
     method: "POST",
     headers:{"Content-Type": "application/json"},
     mode: "cors",
-    data: req.body.data,
+    data: req.body,
     url: "https://eo77qwdnypcffz8.m.pipedream.net"
     }
   
@@ -257,7 +257,7 @@ app.post('/ass-associado', async (req, res) => {
   
   res.status(200).end()
   
-  return api
+  //return api
   
   });
 
