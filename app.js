@@ -223,8 +223,8 @@ app.post('/pipe-comunicacao', async (req, res) => {
 app.post('/ass-associado', async (req, res) => {
   date = new Date()  
   info = req.body
-  
-  console.log("[Ass Associado] - Contrato Assinado por: " + req.body.signers[0].name + " - " + date)
+  console.log(info)
+  console.log("[Ass Associado] - Contrato Assinado por: " + req.body.signers.name + " - " + date)
      
   
     const options = {
