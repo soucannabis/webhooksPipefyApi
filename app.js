@@ -223,7 +223,9 @@ app.post('/pipe-comunicacao', async (req, res) => {
 app.post('/ass-associado', async (req, res) => {
   date = new Date()  
   
-  console.log(req.body.event.body.signers[0].name)
+  console.log("[Ass Associado] Contrato Assinado por: "+req.body.event.body.signers[0].name)
+ 
+  if(req.body.event.body.name == "Termo de Adesão à Associação Terapêutica"){
        
     const options = {
     method: "POST",
@@ -237,9 +239,8 @@ app.post('/ass-associado', async (req, res) => {
   
   
   res.status(200).end()
-  
-  return api
-  
+    
+  }  
   });
 
 app.listen(process.env.PORT || 3000, () => {
