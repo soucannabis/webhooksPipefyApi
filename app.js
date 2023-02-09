@@ -228,7 +228,7 @@ app.post('/ass-associado', async (req, res) => {
     headers:{"Content-Type": "application/json"},
     mode: "cors",
     data: req.body,
-    url: "https://eowufez2eg1bgft.m.pipedream.net"
+    url: "https://eobu76uz85insuz.m.pipedream.net"
     }
   
     await axios(options)   
