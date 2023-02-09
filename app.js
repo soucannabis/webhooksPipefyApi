@@ -224,7 +224,9 @@ app.post('/ass-associado', async (req, res) => {
   date = new Date()  
   info = req.body.data
   
-  console.log("[Ass Associado] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+  console.log(info)
+  
+  //console.log("[Ass Associado] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
   
   infos = {
     "pipe":"ass-associado",
@@ -237,9 +239,7 @@ app.post('/ass-associado', async (req, res) => {
   }
   
   api.push(infos)
-  
-  console.log(req.body.data)
-  
+     
   phaseId = req.body.data.to.id
   
   if(phaseId == "xxx"){
