@@ -224,7 +224,7 @@ app.post('/ass-associado', async (req, res) => {
   date = new Date()  
   
   console.log(req.body)  
-  console.log("[Ass Associado] Contrato Assinado por: "+req.body.signers)
+  console.log("[Ass Associado] Contrato Assinado por: "+req.body.signers[0].name)
  
   if(req.body.event.body.name == "Termo de Adesão à Associação Terapêutica"){
        
