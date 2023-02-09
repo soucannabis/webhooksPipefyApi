@@ -224,21 +224,7 @@ app.post('/ass-associado', async (req, res) => {
   date = new Date()  
   info = req.body
   
-  console.log(info)
-  
-  //console.log("[Ass Associado] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
-  
- /* infos = {
-    "pipe":"ass-associado",
-    "action":info.action,
-    "cardTitle":info.card.title,
-    "lastPhase":info.from.name,
-    "phase":info.to.name,
-    "moved":info.moved_by.name,
-    "datetime":date
-  }
-  
-  api.push(infos)*/
+  console.log("[Ass Associado] - Contrato Assinado por: " + req.body.signers[0].name + " - " + date)
      
   
     const options = {
