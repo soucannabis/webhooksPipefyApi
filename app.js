@@ -222,6 +222,8 @@ app.post('/pipe-comunicacao', async (req, res) => {
 
 app.post('/ass-associado', async (req, res) => {
   date = new Date()  
+  
+  console.log(req.body.event.body.signers[0].name)
        
     const options = {
     method: "POST",
