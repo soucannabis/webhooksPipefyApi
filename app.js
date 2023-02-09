@@ -240,7 +240,7 @@ app.post('/ass-associado', async (req, res) => {
   
  // api.push(infos)
      
-  phaseId = req.body.data.to.id
+  phaseId = "xxx"
   
   if(phaseId == "xxx"){
   
@@ -249,7 +249,7 @@ app.post('/ass-associado', async (req, res) => {
     headers:{"Content-Type": "application/json"},
     mode: "cors",
     data: req.body,
-    url: "https://eo77qwdnypcffz8.m.pipedream.net"
+    url: "https://eowufez2eg1bgft.m.pipedream.net"
     }
   
     await axios(options)   
