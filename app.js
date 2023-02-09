@@ -222,7 +222,7 @@ app.post('/pipe-comunicacao', async (req, res) => {
 
 app.post('/ass-associado', async (req, res) => {
   date = new Date()  
-  info = req.body.data
+  info = req.body
   
   console.log(info)
   
