@@ -236,8 +236,51 @@ app.post('/ass-associado', async (req, res) => {
     }
   
     await axios(options)   
+   
+  res.status(200).end()
+    
+  }  
+  });
+
+app.post('/ass-comunicacao', async (req, res) => {
+  date = new Date()  
+
+  console.log("[Ass Comunicação] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
+ 
+  if(req.body.name == "Termo de concessão de uso de imagem"){
+       
+    const options = {
+    method: "POST",
+    headers:{"Content-Type": "application/json"},
+    mode: "cors",
+    data: req.body,
+    url: "https://eo8g7v59cszwerv.m.pipedream.net"
+    }
   
+    await axios(options)   
+   
+  res.status(200).end()
+    
+  }  
+  });
+
+app.post('/ass-consentimento', async (req, res) => {
+  date = new Date()  
+
+  console.log("[Ass Consentimento] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
+ 
+  if(req.body.name == "Termo de Consentimento Livre e Esclarecido"){
+       
+    const options = {
+    method: "POST",
+    headers:{"Content-Type": "application/json"},
+    mode: "cors",
+    data: req.body,
+    url: "https://eotfocfqrifr17d.m.pipedream.net"
+    }
   
+    await axios(options)   
+   
   res.status(200).end()
     
   }  
