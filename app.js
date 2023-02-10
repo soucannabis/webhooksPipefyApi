@@ -221,11 +221,11 @@ app.post('/pipe-comunicacao', async (req, res) => {
   });
 
 app.post('/ass-associado', async (req, res) => {
-  date = new Date()  
-
-  console.log("[Ass Associado] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
- 
+  date = new Date()    
+  
   if(req.body.name == "Termo de Adesão à Associação Terapêutica"){
+    
+    console.log("[Ass Associado] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
        
     const options = {
     method: "POST",
@@ -243,11 +243,11 @@ app.post('/ass-associado', async (req, res) => {
   });
 
 app.post('/ass-comunicacao', async (req, res) => {
-  date = new Date()  
-
-  console.log("[Ass Comunicação] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
+  date = new Date()   
  
   if(req.body.name == "Termo de concessão de uso de imagem"){
+    
+    console.log("[Ass Comunicação] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
        
     const options = {
     method: "POST",
@@ -267,9 +267,9 @@ app.post('/ass-comunicacao', async (req, res) => {
 app.post('/ass-consentimento', async (req, res) => {
   date = new Date()  
 
-  console.log("[Ass Consentimento] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
- 
   if(req.body.name == "Termo de Consentimento Livre e Esclarecido"){
+    
+    console.log("[Ass Consentimento] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
        
     const options = {
     method: "POST",
