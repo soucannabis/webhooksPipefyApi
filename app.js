@@ -229,7 +229,7 @@ app.post('/pipe-juridico', async (req, res) => {
     })
 
     data.forEach(function(item){
-    if(item.name == 'Enviar procuração farmácia de alto custo'){
+    if(item.name == 'Enviar procuração farmácia de alto custo' && item.value != '[]'){
       check = 1
     }else{
       check = 0
