@@ -1,6 +1,5 @@
 const express = require('express');
 const axios = require('axios')
-const fetch = require('node-fetch')
 const app = express();
 var phaseId = []
 var info = []
@@ -212,12 +211,12 @@ app.post('/pipe-juridico', async (req, res) => {
       })
       };
 
-     await fetch(url, options)
+   /*  await fetch(url, options)
             .then(res => res.json())
             .then(json => {
                 console.log(json)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err))*/
   
   phaseId = req.body.data.to.id
   
