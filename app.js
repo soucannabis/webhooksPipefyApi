@@ -237,9 +237,7 @@ app.post('/pipe-juridico', async (req, res) => {
       return check
   })
   
-  console.log(check)
-  
-  if(phaseId == "314055677"){
+  if(phaseId == "314055677" && check == 1){
     
      console.log("[Pipe Juridico] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
   
@@ -253,9 +251,8 @@ app.post('/pipe-juridico', async (req, res) => {
   
     await axios(options)   
   }
-  
-  res.status(200).end()  
-  check = 0  
+  check = 0 
+  res.status(200).end()     
   return api
   
   });
