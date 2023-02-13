@@ -21,12 +21,11 @@ app.post('/pipe-pedidos', async (req, res) => {
   info = req.body.data
   api.push(info)
 
-  console.log("[Pipe Pedidos]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
-
-
   phaseId = req.body.data.to.id
 
   if(phaseId == "310523364"){ 
+    
+    console.log("[Pipe Pedidos]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)    
    
     const options = {
     method: "POST",
@@ -42,7 +41,9 @@ app.post('/pipe-pedidos', async (req, res) => {
   }
 
   if(phaseId == "311232364"){ 
-   
+    
+    console.log("[Pipe Pedidos]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+      
     const options = {
     method: "POST",
     headers:{"Content-Type": "application/json"},
@@ -70,14 +71,13 @@ app.post('/pipe-associados', async (req, res) => {
   
   info = req.body.data
   api.push(info)
-
-  console.log("[Pipe Associados]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
-
-
+  
   phaseId = req.body.data.to.id
 
   if(phaseId == "316891688"){
-
+    
+    console.log("[Pipe Associados]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+    
     const options = {
     method: "POST",
     headers:{"Content-Type": "application/json"},
@@ -100,12 +100,12 @@ app.post('/pipe-servicos', async (req, res) => {
 
   info = req.body.data
   api.push(info)
-
-   console.log("[Pipe Serviços]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
-
   phaseId = req.body.data.to.id
 
   if(phaseId == "311283175"){
+    
+   console.log("[Pipe Serviços]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+    
 
     const options = {
     method: "POST",
@@ -129,13 +129,13 @@ app.post('/pipe-liga', async (req, res) => {
 
   info = req.body.data
   api.push(info)
-
-   console.log(info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
-
+  
   phaseId = req.body.data.to.id
 
-  if(phaseId == "315282518"){ //enviar boleto
-
+  if(phaseId == "315282518"){
+    
+   console.log("[Pipe Liga]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+    
     const options = {
     method: "POST",
     headers:{"Content-Type": "application/json"},
@@ -149,7 +149,12 @@ app.post('/pipe-liga', async (req, res) => {
     res.status(200).end()
   }
 
-  if(phaseId == "315282523"){ // pedido enviado
+  if(phaseId == "315282523"){ 
+    
+   console.log("[Pipe Liga]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+        
+   console.log(info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+
     const options = {
     method: "POST",
     headers:{"Content-Type": "application/json"},
@@ -163,7 +168,10 @@ app.post('/pipe-liga', async (req, res) => {
     res.status(200).end()
   }
 
-  if(phaseId == "315282527"){ // msg whatsapp
+  if(phaseId == "315282527"){ 
+    
+   console.log("[Pipe Liga]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+    
     const options = {
     method: "POST",
     headers:{"Content-Type": "application/json"},
@@ -184,9 +192,7 @@ app.post('/pipe-liga', async (req, res) => {
 app.post('/pipe-juridico', async (req, res) => {
   date = new Date()  
   info = req.body.data
-  
-  console.log("[Pipe Juridico] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
-  
+   
   infos = {
     "pipe":"sou-juridico",
     "action":info.action,
@@ -198,29 +204,12 @@ app.post('/pipe-juridico', async (req, res) => {
   }
   
   api.push(infos)
-
-   options = {
-      method: 'POST',
-      headers: {
-          'accept': 'application/json',
-          'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjozMDE5OTU2ODEsImVtYWlsIjoiZmVsaXBlcm9zZW5la0BnbWFpbC5jb20iLCJhcHBsaWNhdGlvbiI6MzAwMTQyMDIwfX0.JugAF92MqbUV_fLVKEcF5jUI3G4G2hlAmLeBJ-dEfsEIlX3gdKO1IfbQRUYvHvAk569vuD9K_zCrKylY6R6agw",
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-          query: '{card(id: ' + info.card.id + ') {fields{field{id}, name value}}}'
-      })
-      };
-
-   /*  await fetch(url, options)
-            .then(res => res.json())
-            .then(json => {
-                console.log(json)
-            })
-            .catch(err => console.log(err))*/
   
   phaseId = req.body.data.to.id
   
   if(phaseId == "311533750"){
+    
+     console.log("[Pipe Juridico] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
   
     const options = {
     method: "POST",
@@ -242,9 +231,7 @@ app.post('/pipe-juridico', async (req, res) => {
   app.post('/pipe-comunicacao', async (req, res) => {
     date = new Date()  
     info = req.body.data
-    
-    console.log("[Pipe Comunicação] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
-    
+       
     infos = {
       "pipe":"sou-comunicacao",
       "action":info.action,
@@ -260,7 +247,9 @@ app.post('/pipe-juridico', async (req, res) => {
     phaseId = req.body.data.to.id
     
     if(phaseId == "318409148"){
-    
+      
+    console.log("[Pipe Comunicação] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+          
       const options = {
       method: "POST",
       headers:{"Content-Type": "application/json"},
