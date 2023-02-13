@@ -205,6 +205,8 @@ app.post('/pipe-juridico', async (req, res) => {
   
   phaseId = req.body.data.to.id
   
+  console.log(req.body.data.card.id)
+  
   optionsPipe = {
         method: 'POST',
         url : 'https://api.pipefy.com/graphql',
