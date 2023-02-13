@@ -181,14 +181,14 @@ app.post('/pipe-liga', async (req, res) => {
 
 });
 
-app.post('/pipe-comunicacao', async (req, res) => {
+app.post('/pipe-juridico', async (req, res) => {
   date = new Date()  
   info = req.body.data
   
-  console.log("[Pipe Comunicação] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+  console.log("[Pipe Juridico] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
   
   infos = {
-    "pipe":"sou-comunicacao",
+    "pipe":"sou-juridico",
     "action":info.action,
     "cardTitle":info.card.title,
     "lastPhase":info.from.name,
@@ -198,17 +198,36 @@ app.post('/pipe-comunicacao', async (req, res) => {
   }
   
   api.push(infos)
+
+   options = {
+      method: 'POST',
+      headers: {
+          'accept': 'application/json',
+          'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjozMDE5OTU2ODEsImVtYWlsIjoiZmVsaXBlcm9zZW5la0BnbWFpbC5jb20iLCJhcHBsaWNhdGlvbiI6MzAwMTQyMDIwfX0.JugAF92MqbUV_fLVKEcF5jUI3G4G2hlAmLeBJ-dEfsEIlX3gdKO1IfbQRUYvHvAk569vuD9K_zCrKylY6R6agw",
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          query: '{card(id: ' + info.card.id + ') {fields{field{id}, name value}}}'
+      })
+      };
+
+     await fetch(url, options)
+            .then(res => res.json())
+            .then(json => {
+                console.log(json)
+            })
+            .catch(err => console.log(err))
   
   phaseId = req.body.data.to.id
   
-  if(phaseId == "318409148"){
+  if(phaseId == "311533750"){
   
     const options = {
     method: "POST",
     headers:{"Content-Type": "application/json"},
     mode: "cors",
     data: req.body.data,
-    url: "https://eo77qwdnypcffz8.m.pipedream.net"
+    url: "https://eousqutgxeqh0zm.m.pipedream.net"
     }
   
     await axios(options)   
@@ -219,6 +238,45 @@ app.post('/pipe-comunicacao', async (req, res) => {
   return api
   
   });
+
+  app.post('/pipe-comunicacao', async (req, res) => {
+    date = new Date()  
+    info = req.body.data
+    
+    console.log("[Pipe Comunicação] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+    
+    infos = {
+      "pipe":"sou-comunicacao",
+      "action":info.action,
+      "cardTitle":info.card.title,
+      "lastPhase":info.from.name,
+      "phase":info.to.name,
+      "moved":info.moved_by.name,
+      "datetime":date
+    }
+    
+    api.push(infos)
+    
+    phaseId = req.body.data.to.id
+    
+    if(phaseId == "318409148"){
+    
+      const options = {
+      method: "POST",
+      headers:{"Content-Type": "application/json"},
+      mode: "cors",
+      data: req.body.data,
+      url: "https://eo77qwdnypcffz8.m.pipedream.net"
+      }
+    
+      await axios(options)   
+    }
+    
+    res.status(200).end()
+    
+    return api
+    
+    });
 
 app.post('/ass-associado', async (req, res) => {
   date = new Date()    
