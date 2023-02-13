@@ -6,8 +6,6 @@ var info = []
 var api = []
 var date = ""
 
-
-
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
@@ -216,7 +214,7 @@ app.post('/pipe-juridico', async (req, res) => {
             'Content-Type': 'application/json'
         },
         data: JSON.stringify({
-            query: '{card(id: 646034939) {fields{name value }}}'
+            query: '{card(id: '+req.body.data.card.id+') {fields{name value }}}'
         })
     };
 
@@ -230,8 +228,6 @@ app.post('/pipe-juridico', async (req, res) => {
     })
 
     data.forEach(function(item){
-        console.log(item)
-
     if(item.name == 'Enviar procuração farmácia de alto custo'){
       console.log("xxx")
     }
