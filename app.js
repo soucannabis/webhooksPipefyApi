@@ -232,6 +232,8 @@ app.post('/pipe-juridico', async (req, res) => {
     if(item.name == 'Enviar procuração farmácia de alto custo'){
       check = 1
       return check
+    }else{
+      check = 0
     }
       
       return check
@@ -251,7 +253,7 @@ app.post('/pipe-juridico', async (req, res) => {
   
     await axios(options)   
   }
-  check = 0 
+  
   res.status(200).end()     
   return api
   
