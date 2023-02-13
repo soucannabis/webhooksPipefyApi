@@ -190,6 +190,7 @@ app.post('/pipe-liga', async (req, res) => {
 app.post('/pipe-juridico', async (req, res) => {
   date = new Date()  
   info = req.body.data
+  var check = 0
    
   infos = {
     "pipe":"sou-juridico",
@@ -204,9 +205,7 @@ app.post('/pipe-juridico', async (req, res) => {
   api.push(infos)
   
   phaseId = req.body.data.to.id
-  
-  console.log(req.body.data.card.id)
-  
+    
   optionsPipe = {
         method: 'POST',
         url : 'https://api.pipefy.com/graphql',
@@ -231,9 +230,14 @@ app.post('/pipe-juridico', async (req, res) => {
 
     data.forEach(function(item){
     if(item.name == 'Enviar procuração farmácia de alto custo'){
-      console.log("xxx")
+      check = 1
+      return check
     }
+      
+      return check
   })
+  
+  console.log(check)
   
   if(phaseId == "314055677"){
     
@@ -250,8 +254,8 @@ app.post('/pipe-juridico', async (req, res) => {
     await axios(options)   
   }
   
-  res.status(200).end()
-  
+  res.status(200).end()  
+  check = 0  
   return api
   
   });
