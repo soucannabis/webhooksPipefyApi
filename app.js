@@ -234,10 +234,8 @@ app.post('/pipe-juridico', async (req, res) => {
     return check
     }      
   })
-  
-  console.log(check.length)
 
-  if(phaseId == "314055677" && check.length != 0){
+  if(phaseId == "314055677" && check.length != 2){
      console.log("[Pipe Juridico] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
     
      const options = {
