@@ -190,7 +190,7 @@ app.post('/pipe-liga', async (req, res) => {
 app.post('/pipe-juridico', async (req, res) => {
   date = new Date()  
   info = req.body.data
-  var check = 0
+  var check = ''
    
   infos = {
     "pipe":"sou-juridico",
@@ -229,16 +229,15 @@ app.post('/pipe-juridico', async (req, res) => {
     })
 
     data.forEach(function(item){
-      console.log("loop for each ")
-    if(item.name == 'Enviar procuração farmácia de alto custo' && item.value != '[]'){
+    if(item.name == 'Enviar procuração farmácia de alto custo'){
       check = item.value
     return check
     }      
   })
   
-  console.log(check)
+  console.log(check.length)
 
-  if(phaseId == "314055677" && check != '[]'){
+  if(phaseId == "314055677" && check.length != 0){
      console.log("[Pipe Juridico] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
     
      const options = {
