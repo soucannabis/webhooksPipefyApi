@@ -203,9 +203,7 @@ app.post('/pipe-juridico', async (req, res) => {
   }
   
   api.push(infos)
-  
-  console.log(info)
-  
+    
   phaseId = req.body.data.to.id
     
   optionsPipe = {
