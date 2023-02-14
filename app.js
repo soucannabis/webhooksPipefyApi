@@ -231,21 +231,9 @@ app.post('/pipe-juridico', async (req, res) => {
     })
 
     data.forEach(function(item){
+      console.log("loop for each ")
     if(item.name == 'Enviar procuração farmácia de alto custo' && item.value != '[]'){
-      check = 1
-    }else{
-      check = 0
-    }
-      
-      return check
-  })
-  console.log(data)
-  console.log('---')
-  console.log("check : "+check)  
-  console.log('---')
-    
-  if(phaseId == "314055677" && check == 1){
-    console.log("dentro if ok")
+       console.log("dentro if ok")
      console.log("[Pipe Juridico] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
   
     const options = {
@@ -254,9 +242,13 @@ app.post('/pipe-juridico', async (req, res) => {
     mode: "cors",
     data: req.body.data,
     url: "https://eousqutgxeqh0zm.m.pipedream.net"
-    }
-  
+    }  
     await axios(options)   
+    }      
+  })
+
+  if(phaseId == "314055677" && check == 1){
+   
   }
   
   res.status(200).end()     
@@ -392,6 +384,6 @@ app.post('/ass-consentimento', async (req, res) => {
     });
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log('listening on *:3000');
+    console.log('Webhooks Pipefy API RUN!');
   });
   
