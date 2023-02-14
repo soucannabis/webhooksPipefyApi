@@ -363,6 +363,28 @@ app.post('/ass-consentimento', async (req, res) => {
   }  
   });
 
+  app.post('/ass-procuracao', async (req, res) => {
+    date = new Date()  
+  
+    if(req.body.name == "Procuração Pontual"){
+      
+      console.log("[Ass Procuração] Procuração Assinada por: "+req.body.signers[0].name+" - "+date)
+         
+      const options = {
+      method: "POST",
+      headers:{"Content-Type": "application/json"},
+      mode: "cors",
+      data: req.body,
+      url: "https://eo8d11dz3hnncjo.m.pipedream.net"
+      }
+    
+      await axios(options)   
+     
+    res.status(200).end()
+      
+    }  
+    });
+
 app.listen(process.env.PORT || 3000, () => {
     console.log('listening on *:3000');
   });
