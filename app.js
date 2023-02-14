@@ -233,10 +233,17 @@ app.post('/pipe-juridico', async (req, res) => {
     data.forEach(function(item){
       console.log("loop for each ")
     if(item.name == 'Enviar procuração farmácia de alto custo' && item.value != '[]'){
-       console.log("dentro if ok")
-     console.log("[Pipe Juridico] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+      check = item.value
+    return check
+    }      
+  })
   
-    const options = {
+  console.log(check)
+
+  if(phaseId == "314055677" && check != '[]'{
+     console.log("[Pipe Juridico] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
+    
+     const options = {
     method: "POST",
     headers:{"Content-Type": "application/json"},
     mode: "cors",
@@ -244,11 +251,6 @@ app.post('/pipe-juridico', async (req, res) => {
     url: "https://eousqutgxeqh0zm.m.pipedream.net"
     }  
     await axios(options)   
-    }      
-  })
-
-  if(phaseId == "314055677" && check == 1){
-   
   }
   
   res.status(200).end()     
