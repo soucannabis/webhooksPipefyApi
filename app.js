@@ -289,6 +289,8 @@ app.post('/pipe-juridico', async (req, res) => {
     
         
      if(phaseId == "318021433"){
+       
+       console.log(req.body)
       
     console.log("[Pipe Comunicação] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
           
