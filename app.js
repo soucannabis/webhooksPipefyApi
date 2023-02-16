@@ -287,7 +287,7 @@ app.post('/pipe-juridico', async (req, res) => {
       await axios(options)   
     }
     
-    console.log(req.body.data)
+    console.log(req.body)
     
         
      if(phaseId == "318021433"){
@@ -298,7 +298,7 @@ app.post('/pipe-juridico', async (req, res) => {
       method: "POST",
       headers:{"Content-Type": "application/json"},
       mode: "cors",
-      data: req.body.data,
+      data: req.body,
       url: "https://939e49df13ca6840b7ecd0dda5721577.m.pipedream.net"
       }
     
