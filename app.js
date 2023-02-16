@@ -287,6 +287,8 @@ app.post('/pipe-juridico', async (req, res) => {
       await axios(options)   
     }
     
+    console.log(req.body.data)
+    
         
      if(phaseId == "318021433"){
              
