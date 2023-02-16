@@ -296,7 +296,7 @@ app.post('/pipe-juridico', async (req, res) => {
       method: "POST",
       headers:{"Content-Type": "application/json"},
       mode: "cors",
-      data: req.body.data,
+      body: req.body.data,
       url: "https://cf5a18756fe1683980942c52fbf6f2eb.m.pipedream.net"
       }
     
