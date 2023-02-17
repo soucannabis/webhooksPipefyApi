@@ -294,11 +294,14 @@ app.post('/pipe-juridico', async (req, res) => {
              
     console.log("[Pipe Comunicação] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
           
+     var body = []
+     
+      body.push(req.body.data)
       options = {
       method: "POST",
       headers:{"Content-Type": "application/json"},
       mode: "cors",
-      data: req.body.data,
+      data: body,
       url: "https://0574071a03a930af20271fa9e74f5062.m.pipedream.net"
       }
     
