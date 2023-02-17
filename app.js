@@ -293,15 +293,12 @@ app.post('/pipe-juridico', async (req, res) => {
      if(phaseId == "318021433"){
              
     console.log("[Pipe Comunicação] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
-          
-     var body = []
-     
-      body.push(req.body.data)
+
       options = {
       method: "POST",
       headers:{"Content-Type": "application/json"},
       mode: "cors",
-      data: body,
+      data: {body:{req.body.data}},
       url: "https://0574071a03a930af20271fa9e74f5062.m.pipedream.net"
       }
     
