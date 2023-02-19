@@ -28,6 +28,7 @@ router.post('/pipe-associados', async (req, res) => {
       }
   
       await axios(options)
+      .catch(err => console.log(err))
   
       res.status(200).end()
     }
