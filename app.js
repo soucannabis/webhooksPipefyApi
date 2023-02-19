@@ -13,34 +13,7 @@ app.use(express.urlencoded({
 
 const pipeAssociados = require("./routes/pipe-associados")
 
-app.post('/pipe-associados', async (req, res) => {
-  date = new Date()
- 
-  info = req.body.data
-  api.push(info)
-  
-  phaseId = req.body.data.to.id
-
-  if(phaseId == "316891688"){
-    
-    console.log("[Pipe Associados]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
-    
-    const options = {
-    method: "POST",
-    headers:{"Content-Type": "application/json"},
-    mode: "cors",
-    data: req.body.data,
-    url: "https://94e0dcf0d9bb72b7cacc8bd4c299a8b9.m.pipedream.net"
-    }
-
-    await axios(options)
-    .catch(err => console.log(err))
-
-    res.status(200).end()
-  }
-
-})
-
+app.use("/", pipeAssociados)
 
 app.post('/pipe-pedidos', async (req, res) => {
 
