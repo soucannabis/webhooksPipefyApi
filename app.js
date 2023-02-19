@@ -13,6 +13,8 @@ app.use(express.urlencoded({
 
 const pipeAssociados = require("./routes/pipe-associados")
 
+app.use("/", pipeAssociados)
+
 app.post('/pipe-pedidos', async (req, res) => {
 
   date = new Date()
