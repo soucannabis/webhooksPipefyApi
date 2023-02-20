@@ -12,8 +12,10 @@ app.use(express.urlencoded({
 }));
 
 const pipeAssociados = require("./routes/pipe-associados")
+const assAsscoiado = require("./routes/ass-associado")
 
 app.use("/", pipeAssociados)
+app.use("/", assAsscoiado)
 
 app.post('/pipe-pedidos', async (req, res) => {
 
@@ -282,27 +284,6 @@ app.post('/pipe-juridico', async (req, res) => {
     
     });
 
-app.post('/ass-associado', async (req, res) => {
-  date = new Date()    
-  
-  if(req.body.name == "Termo de Adesão à Associação Terapêutica"){
-    
-    console.log("[Ass Associado] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
-       
-    const options = {
-    method: "POST",
-    headers:{"Content-Type": "application/json"},
-    mode: "cors",
-    data: req.body,
-    url: "https://eobu76uz85insuz.m.pipedream.net"
-    }
-  
-    await axios(options)   
-   
-  res.status(200).end()
-    
-  }  
-  });
 
 app.post('/ass-comunicacao', async (req, res) => {
   date = new Date()   
