@@ -2,7 +2,7 @@ const axios = require('axios')
 const express = require("express")
 const router = express.Router()
 
-app.post('/pipe-juridico', async (req, res) => {
+router.post('/pipe-juridico', async (req, res) => {
     date = new Date()  
     info = req.body.data
     var check = ''
