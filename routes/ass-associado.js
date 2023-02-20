@@ -4,6 +4,7 @@ const router = express.Router()
  
 var date = ""
 
+
 router.post('/ass-associado', async (req, res) => {
     date = new Date()    
     
@@ -20,6 +21,7 @@ router.post('/ass-associado', async (req, res) => {
       }
     
       await axios(options)   
+      .catch(err => console.log(err))
      
     res.status(200).end()
       

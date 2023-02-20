@@ -12,10 +12,10 @@ app.use(express.urlencoded({
 }));
 
 const pipeAssociados = require("./routes/pipe-associados")
-const assAsscoiado = require("./routes/ass-associado")
+const assAssociado = require("./routes/ass-associado")
 
 app.use("/", pipeAssociados)
-app.use("/", assAsscoiado)
+app.use("/", assAssociado)
 
 app.post('/pipe-pedidos', async (req, res) => {
 
