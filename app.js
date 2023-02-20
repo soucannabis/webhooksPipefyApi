@@ -15,11 +15,13 @@ const pipeAssociados = require("./routes/pipe-associados")
 const pipeJuridico = require("./routes/pipe-juridico")
 const assAssociado = require("./routes/ass-associado")
 const assProcuracao = require("./routes/ass-procuracao")
+const assConsentimento = require("./routes/ass-consentimento")
 
 app.use("/", pipeAssociados)
-app.use("/", assAssociado)
 app.use("/", pipeJuridico)
 app.use("/", assProcuracao)
+app.use("/", assAssociado)
+app.use("/", assConsentimento)
 
 app.post('/pipe-pedidos', async (req, res) => {
 
@@ -242,27 +244,7 @@ app.post('/ass-comunicacao', async (req, res) => {
   }  
   });
 
-app.post('/ass-consentimento', async (req, res) => {
-  date = new Date()  
 
-  if(req.body.name == "Termo de Consentimento Livre e Esclarecido"){
-    
-    console.log("[Ass Consentimento] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
-       
-    const options = {
-    method: "POST",
-    headers:{"Content-Type": "application/json"},
-    mode: "cors",
-    data: req.body,
-    url: "https://eotfocfqrifr17d.m.pipedream.net"
-    }
-  
-    await axios(options)   
-   
-  res.status(200).end()
-    
-  }  
-  });
 
 app.listen(process.env.PORT || 3000, () => {
     console.log('Webhooks Pipefy API RUN!');
