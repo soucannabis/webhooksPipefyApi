@@ -17,7 +17,7 @@ router.post('/ass-associado', async (req, res) => {
       headers:{"Content-Type": "application/json"},
       mode: "cors",
       data: req.body,
-      url: "https://74666ca595997168d919b1d16d3e6a61.m.pipedream.net"
+      url: "https://6f301139b86939d09cb32a237bd48533.m.pipedream.net"
       }
     
       await axios(options)   
