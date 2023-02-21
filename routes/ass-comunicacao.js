@@ -4,7 +4,7 @@ const router = express.Router()
  
 var date = ""
 
-app.post('/ass-comunicacao', async (req, res) => {
+router.post('/ass-comunicacao', async (req, res) => {
     date = new Date()   
    
     if(req.body.name == "Termo de concessão de uso de imagem"){
