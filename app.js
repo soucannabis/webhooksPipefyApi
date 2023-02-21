@@ -13,15 +13,20 @@ app.use(express.urlencoded({
 
 const pipeAssociados = require("./routes/pipe-associados")
 const pipeJuridico = require("./routes/pipe-juridico")
+const pipeComunicacao = require("./routes/pipe-comunicacao")
 const assAssociado = require("./routes/ass-associado")
 const assProcuracao = require("./routes/ass-procuracao")
 const assConsentimento = require("./routes/ass-consentimento")
+const assComunicacao = require("./routes/ass-comunicacao")
 
 app.use("/", pipeAssociados)
 app.use("/", pipeJuridico)
+app.use("/", pipeComunicacao)
 app.use("/", assProcuracao)
 app.use("/", assAssociado)
 app.use("/", assConsentimento)
+app.use("/", assComunicacao)
+
 
 app.post('/pipe-pedidos', async (req, res) => {
 
@@ -166,83 +171,10 @@ app.post('/pipe-liga', async (req, res) => {
 
 
 
-  app.post('/pipe-comunicacao', async (req, res) => {
-    date = new Date()  
-    info = req.body.data
-    var options = ''
-       
-    infos = {
-      "pipe":"sou-comunicacao",
-      "action":info.action,
-      "cardTitle":info.card.title,
-      "lastPhase":info.from.name,
-      "phase":info.to.name,
-      "moved":info.moved_by.name,
-      "datetime":date
-    }
-    
-    api.push(infos)
-    
-    phaseId = req.body.data.to.id
-    
-    if(phaseId == "318409148"){
-      
-    console.log("[Pipe Comunicação] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
-          
-      options = {
-      method: "POST",
-      headers:{"Content-Type": "application/json"},
-      mode: "cors",
-      data: req.body.data,
-      url: "https://eo77qwdnypcffz8.m.pipedream.net"
-      }
-    
-      await axios(options)   
-    }
-          
-     if(phaseId == "318021433"){
-             
-    console.log("[Pipe Comunicação] "+info.action+" ("+info.card.title+") de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
-
-      options = {
-      method: "POST",
-      headers:{"Content-Type": "application/json"},
-      mode: "cors",
-      data: {body:req.body.data},
-      url: "https://0574071a03a930af20271fa9e74f5062.m.pipedream.net"
-      }
-    
-      await axios(options)   
-    }
-    
-    res.status(200).end()
-    
-    return api
-    
-    });
-
-
-app.post('/ass-comunicacao', async (req, res) => {
-  date = new Date()   
- 
-  if(req.body.name == "Termo de concessão de uso de imagem"){
-    
-    console.log("[Ass Comunicação] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
-       
-    const options = {
-    method: "POST",
-    headers:{"Content-Type": "application/json"},
-    mode: "cors",
-    data: req.body,
-    url: "https://eo8g7v59cszwerv.m.pipedream.net"
-    }
   
-    await axios(options)   
-   
-  res.status(200).end()
-    
-  }  
-  });
+
+
+
 
 
 

@@ -4,27 +4,26 @@ const router = express.Router()
  
 var date = ""
 
-router.post('/ass-associado', async (req, res) => {
-    date = new Date()    
-    
-    if(req.body.name == "Termo de Adesão à Associação Terapêutica"){
+app.post('/ass-comunicacao', async (req, res) => {
+    date = new Date()   
+   
+    if(req.body.name == "Termo de concessão de uso de imagem"){
       
-      console.log("[Ass Associado] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
+      console.log("[Ass Comunicação] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
          
       const options = {
       method: "POST",
       headers:{"Content-Type": "application/json"},
       mode: "cors",
       data: req.body,
-      url: "https://6f301139b86939d09cb32a237bd48533.m.pipedream.net"
+      url: "https://342abc3ea3ad89812aa71b65a444b40d.m.pipedream.net"
       }
     
       await axios(options)   
-      .catch(err => console.log(err))
      
     res.status(200).end()
       
     }  
-});
+    });
 
 module.exports = router
