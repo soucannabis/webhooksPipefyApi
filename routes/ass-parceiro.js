@@ -17,7 +17,7 @@ router.post('/ass-parceiro', async (req, res) => {
       mode: "cors",
       data: req.body,
       url: "https://eo87f0al6gqai82.m.pipedream.net"
-      }
+      }//
     
       await axios(options)   
       .catch(err => console.log(err))
