@@ -20,6 +20,7 @@ const assAssociado = require("./routes/ass-associado")
 const assProcuracao = require("./routes/ass-procuracao")
 const assConsentimento = require("./routes/ass-consentimento")
 const assComunicacao = require("./routes/ass-comunicacao")
+const assParceiro = require("./routes/ass-parceiro")
 
 
 app.use("/", pipeAssociados)
@@ -31,6 +32,7 @@ app.use("/", assAssociado)
 app.use("/", assConsentimento)
 app.use("/", assComunicacao)
 app.use("/", pipePedidos)
+app.use("/", assParceiro)
 
 
 app.post('/pipe-servicos', async (req, res) => {
