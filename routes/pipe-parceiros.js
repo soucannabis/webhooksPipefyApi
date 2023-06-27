@@ -6,7 +6,7 @@ var phaseId = []
 var info = []
 var date = ""
 
-router.post('/pipe-parceiro', async (req, res) => {
+router.post('/pipe-parceiros', async (req, res) => {
     date = new Date()
    
     info = req.body.data
