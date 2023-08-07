@@ -7,7 +7,7 @@ var date = ""
 router.post('/ass-cadastrotcle', async (req, res) => {
     date = new Date()    
     
-    if(req.body.name == "Termo de Adesão à Associação Terapêutica - Parceiros"){
+    if(req.body.name == "Termo de Adesão à Associação Terapêutica - Cadastro Rápido"){
       
       console.log("[Ass CAdastro Rápido - TCLE] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
          
