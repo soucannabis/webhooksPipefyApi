@@ -5,7 +5,9 @@ const router = express.Router()
 var date = ""
 
 router.post('/ass-associado', async (req, res) => {
-    date = new Date()    
+    date = new Date()   
+    
+    console.log(req.body)
     
     if(req.body.name == "Termo de Adesão à Associação Terapêutica"){
       
