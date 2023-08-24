@@ -7,8 +7,6 @@ var date = ""
 router.post('/ass-associado', async (req, res) => {
     date = new Date()   
     
-    console.log(req.body)
-    
     if(req.body.name == "Termo de Adesão à Associação Terapêutica"){
       
       console.log("[Ass Associado] Contrato Assinado por: "+req.body.signers[0].name+" - "+date)
