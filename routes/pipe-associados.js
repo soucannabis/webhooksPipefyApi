@@ -15,7 +15,7 @@ router.post('/pipe-associados', async (req, res) => {
     
     phaseId = req.body.data.to.id
   
-    if(phaseId == "316891688"){
+    if(phaseId == "311520852"){
       
       console.log("[Pipe Associados]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
       
