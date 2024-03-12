@@ -112,34 +112,9 @@ app.post('/pipe-liga', async (req, res) => {
     res.status(200).end()
   }
 
-  if(phaseId == "315282527"){ 
-    
-   console.log("[Pipe Liga]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)
-    
-    const options = {
-    method: "POST",
-    headers:{"Content-Type": "application/json"},
-    mode: "cors",
-    data: req.body.data,
-    url: "https://eo65mx1ja7g7la8.m.pipedream.net"
-    }
-
-    await axios(options)
-
-    res.status(200).end()
-  }
-
   return api
 
 });
-
-
-
-  
-
-
-
-
 
 
 app.listen(process.env.PORT || 3000, () => {
