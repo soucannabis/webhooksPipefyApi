@@ -26,6 +26,20 @@ router.post('/pipe-pedidos', async (req, res) => {
   
       res.status(200).end()
     }
+
+     if(phaseId == "326089985"){     
+         
+      const options = {
+      method: "POST",
+      headers:{"Content-Type": "application/json"},
+      data: req.body.data,
+      url: "https://n8n.soucannabis.ong.br/webhook-test/27f8d2aa-6c31-40b5-b40c-e6ac222301bd"
+      }
+  
+      await axios(options)
+  
+      res.status(200).end()
+    }
     
     if(phaseId == "311232364"){ 
       
