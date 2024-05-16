@@ -33,7 +33,7 @@ router.post('/pipe-pedidos', async (req, res) => {
       method: "POST",
       headers:{"Content-Type": "application/json"},
       data: req.body.data,
-      url: "https://n8n.soucannabis.ong.br/webhook-test/27f8d2aa-6c31-40b5-b40c-e6ac222301bd"
+      url: "https://n8n.soucannabis.ong.br/webhook/27f8d2aa-6c31-40b5-b40c-e6ac222301bd"
       }
   
       await axios(options)
