@@ -40,24 +40,7 @@ router.post('/pipe-pedidos', async (req, res) => {
   
       res.status(200).end()
     }
-    
-    if(phaseId == "311232364"){ 
-      
-      console.log("[Pipe Pedidos]"+info.action+" de "+info.from.name+" para "+info.to.name+" por "+info.moved_by.name+" - "+date)    
      
-      const options = {
-      method: "POST",
-      headers:{"Content-Type": "application/json"},
-      mode: "cors",
-      data: req.body.data,
-      url: "https://fc3a8e84b8e7335a7e7976366b41fd82.m.pipedream.net"
-      }
-  
-      await axios(options)
-  
-      res.status(200).end()
-    }
-  
   });
 
 module.exports = router
